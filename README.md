@@ -627,6 +627,28 @@ ConnectionError: Failed to connect to Elasticsearch
 
 ---
 
+## 📋 TODO / Roadmap
+
+### ✅ Completed Features
+
+- [x] **Context Pruning**: Implemented Provence reranker for removing irrelevant content from retrieved context
+- [x] **Context Summarization**: LLM-powered summarization to reduce duplication and focus on relevant information
+- [x] **Elasticsearch Long-Term Storage**: Persistent memory storage using Elasticsearch for conversation history across sessions
+- [x] **Checkpointers for Short-Term Storage**: In-memory checkpoint storage using LangGraph's MemorySaver for session-based memory
+- [x] **Tavily Integration**: Live web search integration for accessing current information and real-time data
+- [x] **Relevance Checking**: LLM-based validation to ensure retrieved context actually answers the query
+- [x] **Confidence Scoring**: Similarity-based scoring system to determine when to use Elasticsearch vs Tavily
+
+### 🚧 Pending Work
+
+- [ ] **Subagent Architecture**: Implement subagent system with specialized agents for different tasks
+  - [ ] Memory Agent: Dedicated agent for Elasticsearch long-term memory operations
+  - [ ] Research Agent: Specialized agent for Tavily web search operations
+  - [ ] Supervisor Router: LLM-based routing system to direct queries to appropriate subagents
+  - [ ] Context Isolation: Separate thread contexts for each subagent to prevent context contamination
+
+---
+
 ## 📄 License
 
 Licensed under the Apache License 2.0. See [LICENSE](LICENSE) file for details.
