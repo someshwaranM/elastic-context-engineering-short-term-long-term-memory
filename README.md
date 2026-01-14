@@ -538,31 +538,6 @@ When a conversation ends:
 
 ---
 
-## 🧪 Testing
-
-The modular structure makes testing easier:
-
-```python
-# Example: Testing context pruning
-from elasticsearch_agent.processing.context_pruning import prune_with_provence
-from unittest.mock import Mock
-
-# Mock dependencies
-mock_model = Mock()
-mock_console = Mock()
-
-result = prune_with_provence(
-    query="test",
-    context="test context",
-    provence_model=mock_model,
-    threshold=0.3,
-    verbose=False,
-    console=mock_console
-)
-```
-
----
-
 ## 🐛 Troubleshooting
 
 ### Common Issues
@@ -654,19 +629,7 @@ ConnectionError: Failed to connect to Elasticsearch
 
 ## 📄 License
 
-See LICENSE file for details.
-
----
-
-## 🤝 Contributing
-
-When contributing:
-
-1. Follow the existing module structure
-2. Maintain dependency injection patterns
-3. Add type hints to all functions
-4. Update this README if adding new functions
-5. Write tests for new functionality
+Licensed under the Apache License 2.0. See [LICENSE](LICENSE) file for details.
 
 ---
 
