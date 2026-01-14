@@ -19,8 +19,9 @@ pypdf>=3.0.0,<4.0.0
 rich>=13.0.0,<14.0.0
 python-dotenv>=1.0.0,<2.0.0
 
-# ML/AI packages (optional - can be installed separately if causing issues)
-transformers>=4.30.0,<5.0.0
-torch>=2.0.0,<3.0.0
+# NLP utilities
 nltk>=3.8.0,<4.0.0
+
+# Web search
 langchain-tavily
+

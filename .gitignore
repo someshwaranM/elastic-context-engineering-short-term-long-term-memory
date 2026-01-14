@@ -63,7 +63,9 @@ build/
 
 # Project specific - Old/Unused files
 requirements_*.txt
-!requirements.txt
+requirements.txt
+!requirements-base.txt
+!requirements-ml-cpu.txt
 requirements.not_use
 README.md.old
 

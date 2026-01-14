@@ -79,15 +79,37 @@ TAVILY_API_KEY=tvly-xxxxxxxxxxxxxxxxxxxxxxxxx  # For web search
    source my-venv/bin/activate  # On Windows: my-venv\Scripts\activate
    ```
 
-2. **Install dependencies:**
+2. **Install base dependencies (required):**
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements-base.txt
    ```
 
-3. **Run the agent:**
+3. **Install ML dependencies (optional, only if you need Provence reranker for context pruning):**
+   ```bash
+   pip install -r requirements-ml-cpu.txt
+   ```
+   
+   > **Note**: The ML packages (torch, transformers) are only needed for the Provence reranker feature. If you don't need context pruning, you can skip this step. The system will work without it, but context pruning will be disabled.
+
+4. **Run the agent:**
    ```bash
    python -m elasticsearch_agent.main
    ```
+
+### Installation Options
+
+**Minimal Installation** (without context pruning):
+```bash
+pip install -r requirements-base.txt
+```
+This installs all core functionality except the Provence reranker. The agent will work normally but context pruning will be disabled.
+
+**Full Installation** (with context pruning):
+```bash
+pip install -r requirements-base.txt
+pip install -r requirements-ml-cpu.txt
+```
+This includes CPU-only versions of PyTorch and Transformers for the Provence reranker. Much smaller than GPU versions (~500MB vs ~2GB+).
 
 ---
 
@@ -395,7 +417,10 @@ ConnectionError: Failed to connect to Elasticsearch
 ```
 ⚠️  Provence reranker not available
 ```
-**Solution**: This is non-critical. The system will continue without pruning. Ensure `transformers` and `nltk` are installed.
+**Solution**: This is non-critical. The system will continue without context pruning. To enable context pruning:
+- Install ML dependencies: `pip install -r requirements-ml-cpu.txt`
+- Ensure `transformers` and `nltk` are installed
+- The agent works perfectly fine without context pruning - it's an optional optimization feature
 
 ---
 
